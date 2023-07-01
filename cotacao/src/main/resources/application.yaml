@@ -2,3 +2,23 @@ quarkus:
   rest-client:
     "org.br.mineradora.client.CurrencyPriceClient":
       url: https://economia.awesomeapi.com.br
+  datasource:
+    db-kind: postgresql
+    username: postgres
+    password: 1234
+    jdbc:
+      url: jdbc:postgresql://localhost:5432/quotationdb
+  hibernate-orm:
+    database:
+      generation: update
+mp:
+  messaging:
+    outgoing: # envio para fora
+      quotation-channel:
+        connector: smallrye-kafka # dependencia do pom.xml
+        topic: quotation
+    connector:
+      smallrye-kafka:
+        bootstrap:
+          servers: localhost:9092
+
