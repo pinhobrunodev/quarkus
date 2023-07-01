@@ -26,15 +26,17 @@ public class QuotationServiceImpl implements QuotationService {
 
     @Inject
     @RestClient
-    private CurrencyPriceClient client;
+     CurrencyPriceClient client;
     @Inject
-    private QuotationRepository repository;
+     QuotationRepository repository;
     @Inject
-    private KafkaEvents kafka;
+    KafkaEvents kafka;
 
     @Override
     public void getCurrencyPrice() {
         var currencyPriceInfo = client.getPriceByPair(Constants.USD_BRL);
+        LOG.info("-- Resposta da API Externa --");
+        LOG.info(currencyPriceInfo.getUSDBRL().toString());
         if (updateCurrentInfoPrice(currencyPriceInfo)) {
             kafka.sendNewKafkaEvent(QuotationDTO
                     .builder()

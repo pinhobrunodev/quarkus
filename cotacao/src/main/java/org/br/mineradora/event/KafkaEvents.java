@@ -13,7 +13,7 @@ public class KafkaEvents {
 
     private final Logger LOG = LoggerFactory.getLogger(KafkaEvents.class);
 
-    @Channel("quotation-channel`") // canal que tem acesso a um topico do kafka
+    @Channel("quotation-channel") // canal que tem acesso a um topico do kafka
     Emitter<QuotationDTO> quotationRequestEmitter; // emissor que vai enviar mensagens para o topico do kafka , informando tambem o tipo de msg
 
    public void sendNewKafkaEvent(QuotationDTO quotation) {
@@ -21,4 +21,5 @@ public class KafkaEvents {
         LOG.info(quotation.toString());
         quotationRequestEmitter.send(quotation).toCompletableFuture().join();
     }
+
 }

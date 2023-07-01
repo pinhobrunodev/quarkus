@@ -15,7 +15,7 @@ public class QuotationScheduler {
     private final Logger LOG = LoggerFactory.getLogger(QuotationScheduler.class);
 
     @Inject
-    private QuotationService service;
+    QuotationService service;
 
     @Transactional // Vamos salvar uma informacao no banco de dados que parte deste metodo
     @Scheduled(every = "35s", identity = "task-job")
