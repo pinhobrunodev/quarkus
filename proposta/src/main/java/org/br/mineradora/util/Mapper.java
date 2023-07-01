@@ -1,9 +1,9 @@
 package org.br.mineradora.util;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import org.br.mineradora.dto.ProposalDetailsDTO;
 import org.br.mineradora.entity.ProposalEntity;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.util.Date;
 
 @ApplicationScoped

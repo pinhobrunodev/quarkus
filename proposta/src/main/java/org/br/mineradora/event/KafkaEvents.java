@@ -1,11 +1,12 @@
 package org.br.mineradora.event;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import org.br.mineradora.dto.ProposalDTO;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class KafkaEvents {

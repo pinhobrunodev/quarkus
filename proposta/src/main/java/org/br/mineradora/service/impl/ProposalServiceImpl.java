@@ -1,17 +1,18 @@
 package org.br.mineradora.service.impl;
 
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
+
 import org.br.mineradora.dto.ProposalDTO;
 import org.br.mineradora.dto.ProposalDetailsDTO;
-import org.br.mineradora.entity.ProposalEntity;
 import org.br.mineradora.event.KafkaEvents;
 import org.br.mineradora.repository.ProposalRepository;
 import org.br.mineradora.service.ProposalService;
 import org.br.mineradora.util.Mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 @ApplicationScoped
 public class ProposalServiceImpl implements ProposalService {
