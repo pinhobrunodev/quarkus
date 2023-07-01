@@ -1,0 +1,4 @@
+quarkus:
+  rest-client:
+    "org.br.mineradora.client.CurrencyPriceClient":
+      url: https://economia.awesomeapi.com.br
