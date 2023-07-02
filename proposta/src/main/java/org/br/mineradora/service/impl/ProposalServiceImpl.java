@@ -4,6 +4,7 @@ package org.br.mineradora.service.impl;
 import org.br.mineradora.dto.ProposalDTO;
 import org.br.mineradora.dto.ProposalDetailsDTO;
 import org.br.mineradora.event.KafkaEvents;
+import org.br.mineradora.exception.BusinessException;
 import org.br.mineradora.repository.ProposalRepository;
 import org.br.mineradora.service.ProposalService;
 import org.br.mineradora.util.Mapper;
@@ -30,7 +31,7 @@ public class ProposalServiceImpl implements ProposalService {
     @Override
     public ProposalDetailsDTO findFullProposal(long id) {
         LOG.info("-- Buscando a proposta com id {} --", id);
-        var entity = repository.findByIdOptional(id).orElseThrow(() -> new RuntimeException("not found"));
+        var entity = repository.findByIdOptional(id).orElseThrow(() -> new BusinessException("Proposta não encontrada"));
         return Mapper.toProposalDetailsDTO(entity);
     }
 
