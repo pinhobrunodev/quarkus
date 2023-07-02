@@ -1,5 +1,7 @@
 package org.br.mineradora.entity;
 
+import io.quarkus.arc.All;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +13,7 @@ import java.util.Date;
 @Table(name = "quotation")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class QuotationEntity {
 
     @Id
