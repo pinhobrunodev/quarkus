@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.io.ByteArrayInputStream;
 import java.util.Collections;
 import java.util.Date;
@@ -32,6 +33,7 @@ public class OpportunityServiceImpl implements OpportunityService {
     QuotationRepository quotationRepository;
 
     @Override
+    @Transactional
     public void buildOpportunity(ProposalDTO proposal) {
         List<QuotationEntity> quotationEntityList =
                 quotationRepository.findAll().list();
@@ -51,6 +53,7 @@ public class OpportunityServiceImpl implements OpportunityService {
     }
 
     @Override
+    @Transactional
     public void saveQuotation(QuotationDTO quotation) {
         LOG.info("-- Salvando uma nova cotação com valor: {} --", quotation.getCurrencyPrice());
         quotationRepository.persist(new QuotationEntity(null, quotation.getDate(), quotation.getCurrencyPrice()));
